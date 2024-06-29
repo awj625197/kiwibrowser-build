@@ -21,7 +21,7 @@ export PATH=$DEPOT_TOOLS_DIR:$DEPOT_TOOLS_DIR/python2_bin:$DEPOT_TOOLS_DIR/pytho
 
 
 cd src
-awk '{split("112.0.0.1",a,"."); print "MAJOR=" a[1] "\nMINOR=" a[2] "\nBUILD=" a[3] "\nPATCH=" a[4]}' > chrome/VERSION
+echo "MAJOR=100\nMINOR=0\nBUILD=0\nPATCH=0" > chrome/VERSION
 
 gclient runhooks
 
