@@ -30,6 +30,7 @@ jobs:
            Java/8
            LLVM
            AndroidNDK
+           Java/All
          docker_include: ".+"
          docker_prune: "True"
          docker_clean: "True"
