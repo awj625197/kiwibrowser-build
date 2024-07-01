@@ -160,5 +160,5 @@ jobs:
       if: hashFiles(env.FLAG_STOP) == ''
       uses: actions/upload-artifact@v1
       with:
-        name: apk-arm64
+        name: java-arm64
         path: ./src/out/
