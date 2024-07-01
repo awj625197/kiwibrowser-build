@@ -156,9 +156,19 @@ jobs:
     - run: $ROOT/script/build_step.sh v8
     - run: $ROOT/script/build_step.sh chrome_public_apk
     - run: killall sleep || true
-    - name: Uploading APK
-      if: hashFiles(env.FLAG_STOP) == ''
+    - name: Find and upload PartnerLocationDescriptor.java
+      run: |
+        file_path=$(find . -name PartnerLocationDescriptor.java)
+        if [ -z "$file_path" ]; then
+          echo "File not found!"
+          exit 1
+        else
+          echo "Found file at: $file_path"
+          echo "##[set-output name=path;$file_path"
+        fi
+      id: find_file
+    - name: Upload PartnerLocationDescriptor.java
       uses: actions/upload-artifact@v1
       with:
-        name: apk-arm64
-        path: ./src/out/arm64/apks/
+        name: PartnerLocationDescriptor
+        path: ${{ steps.find_file.outputs.path }}
