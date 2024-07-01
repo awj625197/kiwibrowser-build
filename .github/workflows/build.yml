@@ -161,4 +161,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: apk-arm64
-        path: ./src/out/arm64/apks/
+        path: ./src/out/
